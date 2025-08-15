@@ -50,7 +50,7 @@ FROM early_statuses ES
       from  early_statuses SUB_ES
       where ES.user_uid = SUB_ES.user_uid 
             and ES.vacancy_id = SUB_ES.vacancy_id 
-            and ES.type_id < SUB_ES.type_id
+            and ES.creation_date < SUB_ES.creation_date
       ) 
    AND R.id IS NULL -- 3.	Немає жодного резюме з відправкою (sent_at IS NOT NULL) по тій самій парі кандидат–вакансія.
 ORDER BY ES.creation_date
