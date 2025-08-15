@@ -38,7 +38,7 @@ FROM early_statuses ES
   JOIN accessible_entities AC    -- 4.	І кандидат, і вакансія доступні поточному HR (Alice, hr_id = 1) згідно з таблицею access (entity_type IN ('candidate','vacancy'), right_code='Read').
     ON AC.entity_id = ES.user_uid AND       
        AC.entity_type = 'candidate'       
-  JOIN access AV      -- 4.	І кандидат, і вакансія доступні поточному HR (Alice, hr_id = 1) згідно з таблицею access (entity_type IN ('candidate','vacancy'), right_code='Read').
+  JOIN accessible_entities AV      -- 4.	І кандидат, і вакансія доступні поточному HR (Alice, hr_id = 1) згідно з таблицею access (entity_type IN ('candidate','vacancy'), right_code='Read').
     ON AV.entity_id = ES.vacancy_id AND      
        AV.entity_type = 'vacancy'        
  WHERE 
